@@ -38,7 +38,6 @@ def user_options(expense):
                 add_expense(expense)
             elif user_select  == 2:
                 view_all_expenses(expense)
-                print(expense)
             elif user_select  == 3:
                 view_categ_total(expense)
             elif user_select  == 4:
@@ -50,9 +49,9 @@ def user_options(expense):
             print("Please enter valid input")
                     
 def add_expense(expenses):
-    name = input("Item name: ")
+    name = input("Item name: ").capitalize()
     price = float(input("Cost: "))
-    category = input("Category: ")
+    category = input("Category: ").capitalize()
 
     expense = {
         "Name": name,
@@ -67,7 +66,7 @@ def add_expense(expenses):
     
 def view_all_expenses(expenses):
     for expense in expenses:
-        print(f"Item: {expense['Name']}, Cost: {expense['Price']}, Category: {expense['Category']}\n")
+        print(f"Item: {expense['Name']}, Cost: ${expense['Price']:.2f}, Category: {expense['Category']}")
 
 def view_categ_total(expenses):
     totals = {}
