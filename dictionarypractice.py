@@ -16,7 +16,7 @@ def main():
     }
     
     print(f"{'Name':<10} {'Roll':<6} {'Class':<10} {'Marks':<6}") 
-    print('-' * 35)
+    print('-' * 40)
     
     for roll, student in students.items():
         print(f"{student['Name']:<10} {roll:<6} {student['Class']:<10} {student['Marks']:<6}")
