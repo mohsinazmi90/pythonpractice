@@ -1,60 +1,60 @@
-from wonderwords import RandomWord
+from random_word import RandomWords
 
-def random_word():
-    rw = RandomWord()
-    word = rw.word()
+r = RandomWords()
+
+
+def generate_word():
+    word = r.get_random_word()
     return word
-    
-def letter_guess(word):
-    game = '_' * len(word)
-    count = 0
-    letter_guessed = []
-    
-    try:
-        while True:
-            print("Word: ", " ".join(game))
-            letter = input("Guess your letter: ").lower()
-            
-            if len(letter) != 1:
-                print("Single letters only")
-                continue
-            
-            if letter in letter_guessed:
-                print(f"Guessed letters:", ", ".join(letter_guessed))
-                continue
-            else:
-                letter_guessed.append(letter)
 
-                        
-            if letter in word:
-                new_game = ""
-                for index, char in enumerate(word):
-                    if char == letter:
-                        new_game += letter
-                    else:
-                        new_game += game[index]
-                game = new_game
-            else:
-                count += 1
-                print(f"Letter is not in word. You are on try number {count}")
-            
-            if game == word:
-                print(f"You guessed it. The word was '{game}'")
-                break
-            
-            if count > 6:
-                print(f"Game over! The word was '{word}'")
-                break
-    except:
-        print("Guess only single letters...")
-        
-    
-    
+
+def hangman_game(word):
+
+    hidden = ["_"] * len(word)
+    count = 0
+    letters_guessed = []
+
+    while True:
+        print("Word:", " ".join(hidden))
+        print(f"Guesssed letters: ", " ".join(letters_guessed).upper())
+
+        guess = input("\nEnter your guess: ").lower().strip()
+
+        if len(guess) != 1:
+            print("Enter one letter at a time")
+            continue
+
+        if not guess.isalpha():
+            print("Use Alphabets only")
+            continue
+
+        if guess not in letters_guessed:
+            letters_guessed.append(guess)
+        else:
+            print("You already guessed this letter")
+            continue
+
+        if guess not in word:
+            count += 1
+            print(f"Life {count} of 6 used")
+
+        if count == 6:
+            print(f"You lost! The word was {word}")
+            break
+
+        for i in range(len(word)):
+            if word[i] == guess:
+                hidden[i] = guess
+
+        if "".join(hidden) == word:
+            print("You guessed the word:", word)
+            break
+
+
 def main():
-    word = random_word()
-    letter_guess(word)
-    
+    word = generate_word()
+    hangman_game(word)
+
+
 if __name__ == "__main__":
     main()
-    
-    

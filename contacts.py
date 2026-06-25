@@ -19,7 +19,7 @@ def load_contacts(file):
 
 
 def add_contact(contacts):
-    name = input("Enter name: ").strip()
+    name = input("Enter name: ").strip().capitalize()
 
     if name in contacts:
         print("Contact already exists.")
