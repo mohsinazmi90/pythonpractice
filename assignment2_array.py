@@ -1,8 +1,8 @@
 def main():
-    fruits = ["Apple", "Banana", "Cherry", "Durian"]
+    students_array = [("Ali", 85), ("Sara", 92), ("John", 76), ("Fatima", 88)]
 
-    for fruit in fruits:
-        print(fruit)
+    for name, marks in students_array:
+        print(f"{name} -> {marks}")
 
 
 if __name__ == "__main__":

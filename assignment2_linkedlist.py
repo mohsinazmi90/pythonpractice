@@ -1,65 +1,36 @@
-class Node(object):
-    def __init__(self, d, n=None):
-        self.data = d
-        self.next_node = n
-
-    def get_next(self):
-        return self.next_node
-
-    def set_next(self, n):
-        self.next_node = n
-
-    def get_data(self):
-        return self.data
-
-    def set_data(self, d):
-        self.data = d
+class Node:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+        self.next = None
 
 
-class LinkedList(object):
-    def __init__(self, r=None):
-        self.root = r
-        self.size = 0
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
-    def get_size(self):
-        return self.size
+    def insert(self, name, marks):
+        new_node = Node(name, marks)
+        if self.head is None:
+            self.head = new_node
+            return
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = new_node
 
-    def add(self, d):
-        new_node = Node(d, self.root)
-        self.root = new_node
-        self.size += 1
-
-    def remove(self, d):
-        this_node = self.root
-        prev_node = None
-
-        while this_node:
-            if this_node.get_data() == d:
-                # Case 1: removing root
-                if prev_node is None:
-                    self.root = this_node.get_next()
-                else:
-                    prev_node.set_next(this_node.get_next())
-
-                self.size -= 1
-                return True  # removed successfully
-
-            prev_node = this_node
-            this_node = this_node.get_next()
-
-        return False  # not found
+    def display(self):
+        temp = self.head
+        while temp:
+            print(f"{temp.name} -> {temp.marks}")
+            temp = temp.next
 
 
-def main():
-    ll = LinkedList()
-    ll.add(10)
-    ll.add(20)
-    ll.add(30)
+students_ll = LinkedList()
+students_ll.insert("Ali", 85)
+students_ll.insert("Sara", 92)
+students_ll.insert("John", 76)
+students_ll.insert("Fatima", 88)
 
-    print("Size:", ll.get_size())
-    ll.remove(20)
-    print("Size after removal:", ll.get_size())
-
-
-if __name__ == "__main__":
-    main()
+print("\nLinked List:")
+students_ll.display()
