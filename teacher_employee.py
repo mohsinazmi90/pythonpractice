@@ -7,7 +7,7 @@ class Employee(ABC):
         self.id = employee_id
 
         # Encapsulation: Salary is protected, Bank_account is private
-        self._salary = 0.0
+        self.__salary = 0.0
         self.__bank_account = "Not Set"
 
         # Abstract Method must be implemented by all subclasses
@@ -20,8 +20,7 @@ class Employee(ABC):
     def get_bank_account(self) -> str:
         return self.__bank_account
 
-        # Setter fot private attribute
-
+    # Setter fot private attribute
     def set_bank_account(self, account_number: str):
         if len(account_number) >= 8:
             self.__bank_account = account_number
@@ -33,9 +32,8 @@ class Employee(ABC):
     def display_details(self):
         print(f"ID: {self.id}, Name: {self.name}, Account: {self.__bank_account}")
 
-        # Inheritance: Full time employee inherits from employee
 
-
+# Inheritance: Full time employee inherits from employee
 class FullTimeEmployee(Employee):
     def __init__(self, name: str, employee_id: int, monthly_salary: float):
         super().__init__(name, employee_id)  # Call parent constructor
@@ -46,9 +44,8 @@ class FullTimeEmployee(Employee):
     def calculate_pay(self) -> float:
         return self._salary
 
-        # Inhertance: Part time employee inherits from eomployee
 
-
+# Inhertance: Part time employee inherits from eomployee
 class PartTimeEmployee(Employee):
     def __init__(
         self,
