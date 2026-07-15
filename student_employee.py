@@ -60,7 +60,7 @@ class Manager:
 
     def display_team(self):
         name = [employee.name for employee in self.team]
-        print(f"{self.name}'s team has the following employees: [{", ".join(name)}]")
+        print(f'{self.name}\'s team has the following employees: [{", ".join(name)}]')
 
 
 # ---- Execution of Code ----
