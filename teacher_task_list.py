@@ -68,7 +68,6 @@ class TaskManager:
         It displays tasks depeneding on their status.
         """
 
-        print("\n---Current Task List---")
         if not self._task:
             print("No task available.")
             return
