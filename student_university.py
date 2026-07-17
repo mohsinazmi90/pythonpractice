@@ -73,7 +73,7 @@ class Professor(User):
 
     def give_raise(self, amount):
         if amount > 0:
-            print(f"\n${amount:.2f} added from current salary of ${self.salary:.2f}")
+            print(f"\n${amount:.2f} added to current salary of ${self.salary:.2f}")
             self.salary += amount
             new_salary = f"Increased salary for professor: {self.name}, to ${self.salary:.2f}".title()
             print(new_salary)
