@@ -29,9 +29,12 @@ class Student(User):
 
     def pay_tuition(self, amount):
         if amount > 0:
+            print(
+                f"\n${amount:.2f} paid from current balance of ${self.tuition_balance:.2f}"
+            )
             self.tuition_balance -= amount
             print(
-                f"\nRemaining tuition balance for {self.name}: ${self.tuition_balance:.2f}"
+                f"Remaining tuition balance for {self.name}: ${self.tuition_balance:.2f}"
             )
             return True
         else:
@@ -70,8 +73,9 @@ class Professor(User):
 
     def give_raise(self, amount):
         if amount > 0:
+            print(f"\n${amount:.2f} added from current salary of ${self.salary:.2f}")
             self.salary += amount
-            new_salary = f"\nIncreased salary for professor: {self.name}, to ${self.salary:.2f}".title()
+            new_salary = f"Increased salary for professor: {self.name}, to ${self.salary:.2f}".title()
             print(new_salary)
             return True
         else:
