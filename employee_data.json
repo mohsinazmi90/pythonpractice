@@ -1,0 +1,16 @@
+{
+  "id": 1001,
+  "name": "Sara Connor",
+  "email": "sara.connor@example.com",
+  "role": "Lead Engineer",
+  "address": {
+    "street": "123 Tech House",
+    "city": "New York",
+    "zip_code": "71701"
+  },
+  "skills": [
+    "Python",
+    "Pydantic",
+    "FastAPI"
+  ]
+}

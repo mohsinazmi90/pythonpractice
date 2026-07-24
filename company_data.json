@@ -1,0 +1,52 @@
+{
+    "company": "TechCorp",
+    "established": 2018,
+    "employees": [
+        {
+            "id": 101,
+            "name": "John Doe",
+            "department": "Engineering",
+            "skills": [
+                "Python",
+                "SQL",
+                "Docker"
+            ],
+            "salary": 75000.0,
+            "is_remote": true
+        },
+        {
+            "id": 102,
+            "name": "Alice Walk",
+            "department": "Data Science",
+            "skills": [
+                "Python",
+                "Pandas",
+                "PyTorch"
+            ],
+            "salary": 92000.0,
+            "is_remote": false
+        },
+        {
+            "id": 103,
+            "name": "Robert Chen",
+            "department": "DevOps",
+            "skills": [
+                "AWS",
+                "Kubernetes"
+            ],
+            "salary": 88000.0,
+            "is_remote": true
+        },
+        {
+            "id": 104,
+            "name": "Mohsin Azmi",
+            "department": "Python",
+            "skills": [
+                "Python",
+                "SQL"
+            ],
+            "salary": 90000.0,
+            "is_remote": true
+        }
+    ]
+}
